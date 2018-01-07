@@ -10,15 +10,13 @@ npm install --save-dev gulp-extract-text
 ```
 
 ## Extract files
-Extract text from different files like `.txt`, `.html`, `.css`, '.js' and etc.
+Extract text from different files like `.txt`, `.html`, `.css`, `.js` and etc.
 
 ## Parameters
 ```javascript
 let extract_text_params = {
-
     pattern_start       : "<pattern start>",
     pattern_end         : "<pattern end>"
-
 }
 ```
 
