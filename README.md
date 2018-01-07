@@ -1,28 +1,31 @@
-# gulp-starter-kit
+# gulp-extract-text
 By Ralph Crisostomo - 2018/01/07
 
 ## Description
-A starter kit for creating a Gulp plugin in ES6.
+A Gulp plugin for extracting text from a file.
 
-## Clone
+## Install
 ```bash
-git clone git@github.com:ralphcrisostomo/gulp-starter-kit-es6.git gulp-name && cd gulp-name
-rm -rfv .git && git init
+npm install --save-dev gulp-extract-text
 ```
 
-## Prerequsites
-* `$ npm install`
+## Extract files
+Extract text from different files like `.txt`, `.html`, `.css`, '.js' and etc.
 
-## Gulp Commands
-`gulp` - List all gulp tasks
+## Basic Usage
+Let say we want to extract all the text inside head tag and export it to extracted.txt
 
-```bash
-Commands :
+```javascript
+const gulp              = require('gulp');
+const extract_text      = require('gulp-extract-text');
 
-        gulp                    Show available gulp commands
-
-        gulp test               Unit test everything inside `/app` directory
-        gulp build              Production build
-        gulp release            Release build + version bump + push to repo
+gulp.task('deploy',function(){
+    gulp.src(['src/index.html'])
+    .pipe(extract_text({
+        pattern_start   : "<head>",
+        pattern_end     : "</head>",
+    }))
+    .pipe(gulp.dist('dist/extracted.txt'))
+});
 
 ```
