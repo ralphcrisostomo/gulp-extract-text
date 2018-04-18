@@ -8,7 +8,7 @@ module.exports = function (params, options) {
         let contents  = file.contents.toString('utf8');
         let pattern   = new RegExp(`${pattern_start}((.|\\n)*?)${pattern_end}`);
         let extract   = pattern.exec(contents);
-        extract       = extract ? extract[1] : null;
+        extract       = extract ? extract[1] : '';
         file.contents = new Buffer(extract);
         return cb(null, file);
     });
